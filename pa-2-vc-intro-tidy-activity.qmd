@@ -153,9 +153,9 @@ Next, carry out the following steps:
 10. Turn your vector of numbers into a matrix with 5 columns.
 
 ```{r}
-#| label: add-label-4
-#add comment here
-
+#| label: Matrix
+# Turning vector into a matrix with 5 columns
+code_matrix <- code_break |> pull(step9) |> matrix(ncol = 5) |> as_tibble(column_name = "V") |> mutate(id = row_number())
   
 ```
 
