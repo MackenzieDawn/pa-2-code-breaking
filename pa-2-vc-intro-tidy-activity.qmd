@@ -121,12 +121,15 @@ By altering this top secret set of numbers, you will be able to create a message
 9.  Square every number.
 
 ```{r}
-#| label: add-label-2
-#add comment here
-#there are several ways to do this, the way below doesn't overwrite any column so you "don't lose work"
+#| label: Cracking-the-Code
+# adding, multiplying, exponentiating, and squaring every number
+# there are several ways to do this, the way below doesn't overwrite any column so you "don't lose work"
 
+code_break <- top_secret |> 
+  as_tibble() |>
+  mutate(step6 = top_secret + 14, step7 = step6 * 18 - 257, step8 = exp(step7), step9 = step8 ^2)
 
-
+head(code_break)
 ```
 
 **Checkpoint:** Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your `top_secret` object!
@@ -134,10 +137,11 @@ By altering this top secret set of numbers, you will be able to create a message
 *Hint:* This is what is called a "relational" comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.
 
 ```{r}
-#| label: add-label-3
-#add comment here
+#| label: Verifying-Code
+# There should be 352 numbers below 17, the code is to verify
 
-
+code_break |>
+  summarise(total = sum(step9 < 17))
 
 ```
 
