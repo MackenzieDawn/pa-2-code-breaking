@@ -9,7 +9,7 @@ execute:
 ---
 
 
-**NAMES:** Mackenzie and Jaylin  
+**NAMES:** Jaylin and Mackenzie  
 
 
 ```{r, echo=FALSE}
